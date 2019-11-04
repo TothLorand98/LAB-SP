@@ -1,5 +1,6 @@
 package dp_lab2;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +69,27 @@ public class Carte {
 	
 	public static void main(String[] args)
 	{
-		/*long startTime = System.currentTimeMillis();
+		/*Carte noapteBuna = new Carte("Noapte buna, copii!");
+		Autor rpGheo = new Autor("Radu Pavel Gheo");
+		noapteBuna.AddAutor(rpGheo);
+		Section cap1 = new Section("Capitolul 1");
+		Section cap11 = new Section("Capitolul 1.1");
+		Section cap111 = new Section("Capitolul 1.1.1");
+		Section cap1111 = new Section("Subchapter 1.1.1.1");
+		noapteBuna.addContent(new Paragraf("Multumesc celor care au facut posibila......"));
+		noapteBuna.addContent(cap1);
+		cap1.addElm(new Paragraf("Moto capitol"));
+		cap1.addElm(cap11);
+		cap11.addElm(new Paragraf("Text from subchapter 1.1"));
+		cap11.addElm(cap111);
+		cap111.addElm(new Paragraf("Text from subchapter 1.1.1"));
+		cap111.addElm(cap1111);
+		cap1111.addElm(new Imagine("Image subchapter 1.1.1.1"));
+		noapteBuna.print();
+		
+		
+		
+		long startTime = System.currentTimeMillis();
 		Imagine img1 = new Imagine("Pamela Anderson");
 		Imagine img2 = new Imagine("Kim Kardashian");
 		Imagine img3 = new Imagine("Kirby Griffin");
@@ -93,7 +114,7 @@ public class Carte {
 		playboyS1.print();
 		endTime = System.currentTimeMillis();
 		System.out.println("Printing again the section 1 took " + (endTime -
-		startTime) + " milliseconds");*/
+		startTime) + " milliseconds");
 		
 		
 		
@@ -121,7 +142,33 @@ public class Carte {
 			playboyS1.print();
 			endTime = System.currentTimeMillis();
 			System.out.println("Printing again the section 1 took " + (endTime -
-			startTime) + " milliseconds");
+			startTime) + " milliseconds");*/
+		   
+		Section cap1 = new Section("Capitolul 1");
+		Paragraf p1 = new Paragraf("Paragraph 1");
+		cap1.addElm(p1);
+		Paragraf p2 = new Paragraf("Paragraph 2");
+		cap1.addElm(p2);
+		Paragraf p3 = new Paragraf("Paragraph 3");
+		cap1.addElm(p3);
+		Paragraf p4 = new Paragraf("Paragraph 4");
+		cap1.addElm(p4);
+		System.out.println("Printing without Alignment");
+
+		System.out.println();
+		cap1.print();
+		p1.setAlignStrategy(new AlignCenter());
+		p2.setAlignStrategy(new AlignRight());
+		p3.setAlignStrategy(new AlignLeft());
+		System.out.println();
+		System.out.println("Printing with Alignment");
+		System.out.println();
+		cap1.print();
+			
+		
+		
+		
+		
 	}
 	
 }
