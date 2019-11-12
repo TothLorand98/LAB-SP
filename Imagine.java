@@ -18,4 +18,8 @@ public class Imagine implements Element{
 	{
 		System.out.println("Imagine: " + this.nume);
 	}
+	public void accept(Visitor a) {
+		a.visit(this);
+			
+	}
 }
