@@ -26,5 +26,10 @@ public class Paragraf implements Element{
 		else
 			System.out.println("Paragraf: " + this.text);
 	}
+	public void accept(Visitor a) {
+	
+		a.visit(this);
+		
+	}
 
 }
