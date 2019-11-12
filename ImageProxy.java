@@ -20,4 +20,7 @@ public class ImageProxy implements Element {
 		realImage.print();
 	
 	}
+	public void accept(Visitor a) {
+		a.visit(this);
+	}
 }
