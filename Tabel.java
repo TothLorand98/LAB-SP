@@ -13,4 +13,8 @@ public class Tabel implements Element{
 	{
 		System.out.println("Tabel: " + this.nume);
 	}
+	public void accept(Visitor a) {
+		a.visit(this);
+			
+	}
 }
