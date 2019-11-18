@@ -142,7 +142,7 @@ public class Carte {
 			playboyS1.print();
 			endTime = System.currentTimeMillis();
 			System.out.println("Printing again the section 1 took " + (endTime -
-			startTime) + " milliseconds");*/
+			startTime) + " milliseconds");
 		   
 		Section cap1 = new Section("Capitolul 1");
 		Paragraf p1 = new Paragraf("Paragraph 1");
@@ -163,7 +163,11 @@ public class Carte {
 		System.out.println();
 		System.out.println("Printing with Alignment");
 		System.out.println();
-		cap1.print();
+		cap1.print();*/
+		Builder jsonBuilder = new JSONBuilder();
+       	    jsonBuilder.Build();
+            Element myBook = jsonBuilder.GetResult();
+            myBook.print();
 			
 		
 		
