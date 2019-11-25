@@ -15,8 +15,14 @@ import java.util.HashMap;
 
 
 public class JSONBuilder implements Builder {
-
-    
+public String fileName;
+ public JSONBuilder(String fileName) {
+	 this.fileName=fileName;
+	 
+ }
+public JSONBuilder() {
+	// TODO Auto-generated constructor stub
+}
 public Element document;
     
 public final String bookJSONPath = "../book.json";
