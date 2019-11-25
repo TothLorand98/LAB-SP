@@ -4,10 +4,11 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carte {
+public class Carte implements Element{
 	private String name;
 	private List<Autor> autori;
 	private List<Element> cuprins;
+	private List<Element> content = new ArrayList<Element>();
 	
 	public Carte(String name) {
 		this.name=name;
@@ -42,6 +43,13 @@ public class Carte {
 		return cuprins.indexOf(elm);
 	}
 	
+	 public void accept(Visitor a) {
+   
+		 a.visit(this);
+		for (Element x : content) {
+		     x.accept(a);
+		    }
+  }
 	/*public Capitol GetCapitol(int index)
 	{
 		return cuprins.get(index);
@@ -66,6 +74,18 @@ public class Carte {
 	public void setCuprins(List<Capitol> cuprins) {
 		this.cuprins = cuprins;
 	}*/
+	
+		public void add(Element element) {
+		}
+
+		public void remove(Element element) {
+			
+		}
+
+		public Element getElement(int index) {
+		
+			return null;
+		}
 	
 	public static void main(String[] args)
 	{
@@ -163,16 +183,48 @@ public class Carte {
 		System.out.println();
 		System.out.println("Printing with Alignment");
 		System.out.println();
-		cap1.print();*/
-		Builder jsonBuilder = new JSONBuilder();
-       	    jsonBuilder.Build();
-            Element myBook = jsonBuilder.GetResult();
-            myBook.print();
+		cap1.print();
 			
 		
 		
 		
+			Section cap1 = new Section("Capitolul 1");
+			Paragraf p1 = new Paragraf("Paragraph 1");
+			cap1.addElm(p1);
+			Paragraf p2 = new Paragraf("Paragraph 2");
+			cap1.addElm(p2);
+			Paragraf p3 = new Paragraf("Paragraph 3");
+			cap1.addElm(p3);
+			Paragraf p4 = new Paragraf("Paragraph 4");
+			cap1.addElm(p4);
+			cap1.addElm(new ImageProxy("ImageOne"));
+			cap1.addElm(new Imagine("ImageTwo"));
+			cap1.addElm(new Paragraf("Some text"));
+			cap1.addElm(new Tabel("Table 1"));
+			BookStatistics stats = new BookStatistics();
+			cap1.accept(stats);
+			stats.printStatistics(); 
+  
+		    
+			Builder jsonBuilder = new JSONBuilder();
+       	    jsonBuilder.Build();
+            Element myBook = jsonBuilder.GetResult();
+            myBook.print();
+		
+		*/
+		
+		Command cmd1 = new OpenCommand("book.json");
+		cmd1.execute();
+		Command cmd2 = new StatisticsCommand();
+		cmd2.execute();
+		DocumentManager.getBook().print();
+			
+		
+		
 		
 	}
+
+
+
 	
 }
